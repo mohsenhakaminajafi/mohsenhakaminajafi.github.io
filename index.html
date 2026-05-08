@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohsen Hakami Najafi — Quantum Information &amp; Photonics</title>
+    <meta name="description" content="Personal academic page of Mohsen Hakami Najafi. MSc in Quantum Information and Photonics, University of Padua.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Source+Serif+4:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAFAF8;
+            --text: #1A1A1A;
+            --text-sec: #555555;
+            --accent: #2B4C7E;
+            --accent-bg: #EDF2F9;
+            --border: #E2E2E0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg); color: var(--text);
+            line-height: 1.7; -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(250,250,248,0.88);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); z-index: 100; padding: 0 2rem;
+        }
+        .nav-inner {
+            max-width: 940px; margin: 0 auto; display: flex;
+            align-items: center; justify-content: space-between; height: 56px;
+        }
+        .nav-name { font-weight: 600; font-size: 0.95rem; color: var(--text); text-decoration: none; }
+        .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+        .nav-links a {
+            font-size: 0.84rem; font-weight: 450; color: var(--text-sec);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* HERO */
+        .hero {
+            max-width: 940px; margin: 0 auto; padding: 8rem 2rem 4rem;
+            display: grid; grid-template-columns: 1fr 190px; gap: 3rem; align-items: center;
+        }
+        .hero h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 2.3rem; font-weight: 600; line-height: 1.2;
+            letter-spacing: -0.02em; margin-bottom: 0.7rem;
+        }
+        .hero .subtitle { font-size: 1.02rem; color: var(--text-sec); margin-bottom: 1.2rem; line-height: 1.6; }
+        .contact-row { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-size: 0.84rem; color: var(--text-sec); }
+        .contact-row a { color: var(--accent); text-decoration: none; }
+        .contact-row a:hover { text-decoration: underline; }
+        .hero-photo {
+            width: 190px; height: 190px; border-radius: 50%; background: var(--accent-bg);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3.2rem; color: var(--accent); font-family: 'Source Serif 4', serif;
+            font-weight: 600; overflow: hidden;
+        }
+        .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* SECTIONS */
+        .container { max-width: 940px; margin: 0 auto; padding: 0 2rem; }
+        section { margin-bottom: 4.5rem; }
+        .section-title {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.45rem; font-weight: 600; margin-bottom: 1.4rem;
+            padding-bottom: 0.45rem; border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        /* ABOUT */
+        .about-text { font-size: 0.94rem; color: var(--text-sec); max-width: 720px; line-height: 1.8; }
+        .about-text + .about-text { margin-top: 1rem; }
+        .about-text a { color: var(--accent); }
+        .interests { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.2rem; }
+        .tag {
+            background: var(--accent-bg); color: var(--accent);
+            font-size: 0.79rem; font-weight: 500; padding: 0.32rem 0.8rem; border-radius: 100px;
+        }
+
+        /* TIMELINE */
+        .timeline-item {
+            display: grid; grid-template-columns: 170px 1fr;
+            gap: 1.4rem; padding: 1.4rem 0; border-bottom: 1px solid var(--border);
+        }
+        .timeline-item:last-child { border-bottom: none; }
+        .timeline-date { font-size: 0.82rem; color: var(--text-sec); padding-top: 0.12rem; font-weight: 450; }
+        .timeline-content h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 0.2rem; }
+        .timeline-content .inst { font-size: 0.89rem; color: var(--accent); margin-bottom: 0.45rem; font-weight: 450; }
+        .timeline-content p { font-size: 0.87rem; color: var(--text-sec); line-height: 1.7; }
+
+        /* COURSES */
+        .courses-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 2rem; }
+        .course-item {
+            display: flex; justify-content: space-between;
+            font-size: 0.87rem; padding: 0.4rem 0; border-bottom: 1px solid #f0f0ee;
+        }
+        .course-grade { color: var(--text-sec); font-weight: 500; }
+
+        /* SKILLS */
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+        .skill-group h3 { font-size: 0.89rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .skill-group p { font-size: 0.87rem; color: var(--text-sec); line-height: 1.7; }
+
+        /* PLACEHOLDER */
+        .placeholder-card {
+            background: var(--accent-bg); border-radius: 10px;
+            padding: 1.6rem 1.8rem; font-size: 0.89rem; color: var(--accent); line-height: 1.7;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border); padding: 2rem;
+            text-align: center; font-size: 0.79rem; color: var(--text-sec); margin-top: 2rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 6rem; }
+            .hero-photo { width: 140px; height: 140px; margin: 0 auto; order: -1; }
+            .contact-row { justify-content: center; }
+            .timeline-item { grid-template-columns: 1fr; gap: 0.2rem; }
+            .skills-grid, .courses-grid { grid-template-columns: 1fr; }
+            .nav-links { gap: 0.9rem; }
+            .nav-links a { font-size: 0.79rem; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-name">Mohsen Hakami Najafi</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <div>
+        <h1>Mohsen Hakami Najafi</h1>
+        <p class="subtitle">
+            MSc student in Quantum Information &amp; Photonics at the University of Padua.<br>
+            Research in photon-counting interferometry, quantum communication, and quantum optics.
+        </p>
+        <div class="contact-row">
+            <span>Padua, Italy</span>
+            <a href="mailto:Mohsen.hakaminajafi@studenti.unipd.it">Mohsen.hakaminajafi@studenti.unipd.it</a>
+            <!-- INSTRUCTIONS: Uncomment and edit these when you set up your profiles:
+            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+            <a href="https://orcid.org/your-id" target="_blank">ORCID</a>
+            -->
+        </div>
+    </div>
+    <div class="hero-photo">
+        <!-- INSTRUCTIONS: To add your photo, put a file called "photo.jpg" in the same
+             repository folder, then replace the "MH" text below with:
+             <img src="photo.jpg" alt="Mohsen Hakami Najafi">
+        -->
+        MH
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2 class="section-title">About</h2>
+        <p class="about-text">
+            I am completing my Master's degree in Quantum Information and Photonics at the University of Padua, Italy.
+            My thesis research, carried out at TU Delft, focused on photon-counting intensity interferometry using
+            superconducting nanowire single-photon detectors (SNSPDs) and avalanche photodiodes (APDs).
+            I have hands-on experience with optical alignment, single-photon detection systems, photon-correlation
+            measurements, and timing electronics, as well as with the simulation and analysis of continuous-variable
+            quantum key distribution (CV-QKD) protocols.
+        </p>
+        <p class="about-text">
+            My research interests lie at the intersection of quantum optics, quantum communication, and quantum information theory.
+            I am particularly interested in quantum correlations, entanglement-based protocols, and the characterisation of
+            non-classical light sources.
+        </p>
+        <div class="interests">
+            <span class="tag">Quantum Optics</span>
+            <span class="tag">Quantum Communication</span>
+            <span class="tag">Photon-Counting Interferometry</span>
+            <span class="tag">Quantum Information Theory</span>
+            <span class="tag">Single-Photon Detection</span>
+            <span class="tag">Quantum Key Distribution</span>
+            <span class="tag">Entanglement</span>
+        </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+        <h2 class="section-title">Research Experience</h2>
+
+        <div class="timeline-item">
+            <div class="timeline-date">Oct 2025 – Apr 2026</div>
+            <div class="timeline-content">
+                <h3>Photon-Counting Interferometry with SNSPDs</h3>
+                <div class="inst">TU Delft — Faculty of Applied Sciences (Master's Thesis)</div>
+                <p>
+                    Independently designed and implemented a photon-counting interferometry setup for stellar intensity interferometry.
+                    Performed optical alignment, detector calibration, and timing-jitter characterisation in single-photon detection systems.
+                    Conducted photon-correlation measurements and coincidence analysis to extract second-order coherence functions g<sup>(2)</sup>(&tau;).
+                    Adapted Python-based pipelines for photon-stream analysis, coincidence histograms, and statistical noise modelling.
+                    Improved timing resolution by a factor of four over the course of the project.
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">Nov 2024 – Mar 2025</div>
+            <div class="timeline-content">
+                <h3>Polarisation-Drift Compensation for Fibre-Based QKD</h3>
+                <div class="inst">Quantum Future Lab, University of Padua</div>
+                <p>
+                    Contributed to the design, testing, and optimisation of an automatic polarisation-drift compensation system
+                    for fibre-based quantum key distribution. Conducted stability and performance tests under varying
+                    environmental conditions for long-duration key-exchange experiments.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+
+        <div class="timeline-item">
+            <div class="timeline-date">2023 – Present</div>
+            <div class="timeline-content">
+                <h3>MSc Quantum Information and Photonics</h3>
+                <div class="inst">University of Padua, Italy</div>
+                <p>Including Erasmus exchanges at UPC Barcelona (Spring 2025) and TU Delft (Oct 2025 – Apr 2026).</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">2016 – 2021</div>
+            <div class="timeline-content">
+                <h3>BSc Physics</h3>
+                <div class="inst">University of Tehran, Iran</div>
+                <p>Ranked Top 3% among ~160,000 participants in Iran's National University Entrance Exam.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+        <h2 class="section-title">Publications</h2>
+        <div class="placeholder-card">
+            Research outputs are currently in development as part of my Master's thesis work.
+            This section will be updated as manuscripts become available.
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-group">
+                <h3>Programming</h3>
+                <p>Python (scientific computing, data analysis, Qiskit), MATLAB (simulation, signal processing), C++</p>
+            </div>
+            <div class="skill-group">
+                <h3>Experimental</h3>
+                <p>Optical alignment, interferometer stabilisation, single-photon detectors (APDs, SNSPDs, SPADs), photon-correlation measurements, coincidence detection, timing-jitter characterisation, timing electronics, free-space and fibre-based setups, waveplates, PBS, cryogenic systems</p>
+            </div>
+            <div class="skill-group">
+                <h3>Software &amp; Tools</h3>
+                <p>Ansys Lumerical/Optics, TCSPC, coincidence detection systems</p>
+            </div>
+            <div class="skill-group">
+                <h3>Languages</h3>
+                <p>English (fluent), Persian (native)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <p class="about-text">
+            Feel free to reach out by email at
+            <a href="mailto:Mohsen.hakaminajafi@studenti.unipd.it">Mohsen.hakaminajafi@studenti.unipd.it</a>.
+        </p>
+    </section>
+
+</div>
+
+<footer>
+    &copy; 2026 Mohsen Hakami Najafi
+</footer>
+
+</body>
+</html>
